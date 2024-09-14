@@ -1,0 +1,8 @@
+<div class="px-24 py-12">
+  <h1>Welcome to our shopping website, start browsing..</h1>
+  <div class="grid grid-cols-3 p-16 gap-24 justify-center justify-items-center">
+    @for (product of products; track product.id) {
+    <app-product-card [productItem]="product"></app-product-card>
+    }
+  </div>
+</div>

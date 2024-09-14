@@ -1,0 +1,36 @@
+<a [routerLink]="['product', productItem.id]">
+  <div class="card card-compact bg-base-100 min-h-[32rem] w-96 shadow-md">
+    <figure>
+      @if (productItem.stock > 0) {
+      <div class="badge badge-accent absolute top-5 left-5 p-3 text-white">
+        in stock
+      </div>
+      } @else {
+      <div class="badge bg-rose-500 absolute top-5 left-5 p-3 text-white">
+        out of stock
+      </div>
+
+      }
+      <img
+        class="h-[15rem] w-full object-cover bg-slate-100"
+        [src]="productItem.images[0]"
+        alt="Shoes"
+      />
+    </figure>
+    <div class="card-body">
+      <div class="flex pb-5">
+        <h2 class="card-title pr-5 h-12">{{ productItem.title }}</h2>
+        <span class="font-bold font-sans ms-auto text-2xl"
+          ><span class="text-lg align-text-top">$</span
+          >{{ productItem.price }}</span
+        >
+      </div>
+      <p>{{ productItem.description }}</p>
+
+      <p class="font-bold">{{ productItem.rating }} ★</p>
+      <div class="card-actions py-4">
+        <button class="btn btn-outline rounded-full">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</a>

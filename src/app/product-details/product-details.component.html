@@ -1,0 +1,52 @@
+<div class="grid grid-cols-2 px-36 pt-20">
+  <div>
+    <div class="card shadow-md bg-slate-100 w-96 h-[42]">
+      <img [src]="productItem.images[0]" class="object-cover" alt="" />
+    </div>
+    <div class="carousel rounded-box max-w-md space-x-4 p-4">
+      @for (product of productItem.images; track $index) {
+      <div class="carousel-item">
+        <img
+          [src]="product"
+          class="rounded-box h-44 object-cover bg-slate-100 shadow-md"
+        />
+      </div>
+
+      }
+    </div>
+  </div>
+  <div>
+    <div class="flex justify-between">
+      <div>
+        <h1 class="text-4xl font-bold">{{ productItem.title }}</h1>
+        <p class="text-lg pt-5">{{ productItem.description }}</p>
+        <p class="text-lg pt-5 text-teal-600 font-bold">
+          {{ productItem.rating }} ★
+        </p>
+      </div>
+      @if (productItem.stock > 0) {
+      <div class="badge badge-accent p-3 text-white w-full">in stock</div>
+      } @else {
+      <div class="badge bg-rose-500 p-3 text-white">out of stock</div>
+      }
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 class="text-2xl pb-2 font-bold">${{ productItem.price }}</h3>
+    <p class="text-gray-400">free delivery</p>
+    <div class="divider"></div>
+
+    <div class="">
+      <p>More information</p>
+      <p class="badge badge-neutral p-3 badge-sm mt-2">
+        {{ productItem.category }}
+      </p>
+    </div>
+    <div class="divider"></div>
+    <div class="flex gap-4">
+      <button class="btn btn-neutral rounded-full">Buy Now</button>
+      <button class="btn btn-outline rounded-full">Add to Cart</button>
+    </div>
+  </div>
+</div>
